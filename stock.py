@@ -3,7 +3,7 @@ import yfinance as yf
 from prophet import Prophet
 from prophet.plot import plot_plotly
 import pandas as pd
-from datetime import date
+from datetime import date, time
 from xgboost import XGBRegressor
 import numpy as np
 import plotly.graph_objects as go
@@ -64,14 +64,40 @@ with col3:
 # ----------------------------------------
 # Data Loading and Event Fetch
 # ----------------------------------------
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_data(ticker, start):
     try:
-        data = yf.download(ticker, start=start, end=end_date, auto_adjust=True)
-        data.reset_index(inplace=True)
-        return data
+        ticker = ticker.upper().strip()
+
+        for attempt in range(3):
+            # Preferred method (more stable)
+            df = yf.Ticker(ticker).history(start=start, end=date.today())
+
+            if not df.empty:
+                df.reset_index(inplace=True)
+                return df
+
+            # fallback method
+            df = yf.download(
+                ticker,
+                start=start,
+                end=date.today(),
+                auto_adjust=True,
+                progress=False,
+                threads=False
+            )
+
+            if not df.empty:
+                df.reset_index(inplace=True)
+                return df
+
+            time.sleep(2)  # avoid rate limiting
+
+        # Final fallback
+        st.warning("Yahoo returned no data. Try again later.")
+        return pd.DataFrame()
+
     except Exception as e:
-        logging.error(f"Error loading data for {ticker}: {e}")
         st.error(f"Error loading data for {ticker}: {e}")
         return pd.DataFrame()
 
