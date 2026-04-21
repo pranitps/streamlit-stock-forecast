@@ -5206,3 +5206,105 @@ cwd: None
 2026-04-20 14:27:54,214 - INFO - Chain [1] start processing
 2026-04-20 14:27:54,917 - INFO - Chain [1] done processing
 2026-04-20 14:27:57,380 - INFO - Forecast generated for 90 days for AAPL
+2026-04-20 21:58:25,573 - INFO - Training data prepared with 1255 rows for ticker AAPL
+2026-04-20 21:58:25,726 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-20 21:58:25,816 - DEBUG - Adding TBB (C:\Users\prani\AppData\Local\Programs\Python\Python313\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2026-04-20 21:58:25,828 - ERROR - Error during forecasting: Column ds has timezone specified, which is not supported. Remove timezone.
+2026-04-20 21:58:40,147 - INFO - Training data prepared with 1255 rows for ticker AAPL
+2026-04-20 21:58:40,153 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-20 21:58:40,304 - DEBUG - TBB already found in load path
+2026-04-20 21:58:40,322 - ERROR - Error during forecasting: Column ds has timezone specified, which is not supported. Remove timezone.
+2026-04-21 08:56:42,028 - INFO - Training data prepared with 1255 rows for ticker AAPL
+2026-04-21 08:56:42,030 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 08:56:42,180 - DEBUG - TBB already found in load path
+2026-04-21 08:56:42,187 - ERROR - Error during forecasting: Column ds has timezone specified, which is not supported. Remove timezone.
+2026-04-21 08:57:58,223 - INFO - Training data prepared with 1255 rows for ticker AAPL
+2026-04-21 08:57:58,227 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 08:57:58,317 - DEBUG - TBB already found in load path
+2026-04-21 08:57:58,341 - ERROR - Error during forecasting: Column ds has timezone specified, which is not supported. Remove timezone.
+2026-04-21 08:59:08,996 - INFO - Training data prepared with 1255 rows for ticker AAPL
+2026-04-21 08:59:09,077 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 08:59:09,160 - DEBUG - Adding TBB (C:\Users\prani\AppData\Local\Programs\Python\Python313\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2026-04-21 08:59:09,170 - ERROR - Error during forecasting: Column ds has timezone specified, which is not supported. Remove timezone.
+2026-04-21 09:01:51,951 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:01:52,038 - DEBUG - TBB already found in load path
+2026-04-21 09:01:52,076 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:01:52,134 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\g3jgp7r6.json
+2026-04-21 09:01:52,330 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\t_lufzrq.json
+2026-04-21 09:01:52,379 - DEBUG - idx 0
+2026-04-21 09:01:52,379 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:01:52,380 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=28433', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\g3jgp7r6.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\t_lufzrq.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelwaxkpnlt\\prophet_model-20260421090152.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:01:52,380 - INFO - Chain [1] start processing
+2026-04-21 09:01:54,153 - INFO - Chain [1] done processing
+2026-04-21 09:02:38,010 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:38,093 - DEBUG - TBB already found in load path
+2026-04-21 09:02:38,111 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:38,152 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\b6mfjoc2.json
+2026-04-21 09:02:38,373 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\bvutbxpn.json
+2026-04-21 09:02:38,378 - DEBUG - idx 0
+2026-04-21 09:02:38,378 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:38,378 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=63264', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\b6mfjoc2.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\bvutbxpn.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelc0nihuin\\prophet_model-20260421090238.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:38,378 - INFO - Chain [1] start processing
+2026-04-21 09:02:39,026 - INFO - Chain [1] done processing
+2026-04-21 09:02:39,036 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:39,174 - DEBUG - TBB already found in load path
+2026-04-21 09:02:39,267 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:39,519 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\7ogpgd82.json
+2026-04-21 09:02:39,721 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:39,847 - DEBUG - TBB already found in load path
+2026-04-21 09:02:39,882 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\prsm7htu.json
+2026-04-21 09:02:39,899 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:39,900 - DEBUG - idx 0
+2026-04-21 09:02:39,900 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:39,900 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=51656', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\7ogpgd82.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prsm7htu.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_model5b4sb9tb\\prophet_model-20260421090239.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:39,901 - INFO - Chain [1] start processing
+2026-04-21 09:02:39,947 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\hvk4gsbg.json
+2026-04-21 09:02:40,231 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\t7ih4s3a.json
+2026-04-21 09:02:40,237 - DEBUG - idx 0
+2026-04-21 09:02:40,237 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:40,238 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=59594', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\hvk4gsbg.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\t7ih4s3a.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelohv7sw0k\\prophet_model-20260421090240.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:40,238 - INFO - Chain [1] start processing
+2026-04-21 09:02:40,474 - INFO - Chain [1] done processing
+2026-04-21 09:02:40,628 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:40,719 - DEBUG - TBB already found in load path
+2026-04-21 09:02:40,772 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:40,808 - INFO - Chain [1] done processing
+2026-04-21 09:02:40,815 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\wrt4b97s.json
+2026-04-21 09:02:41,621 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\mzauvrjc.json
+2026-04-21 09:02:41,662 - DEBUG - idx 0
+2026-04-21 09:02:41,663 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:41,663 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43025', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\wrt4b97s.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\mzauvrjc.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelttylqvkf\\prophet_model-20260421090241.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:41,678 - INFO - Chain [1] start processing
+2026-04-21 09:02:41,808 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:41,898 - DEBUG - TBB already found in load path
+2026-04-21 09:02:41,923 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:41,955 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\dpxnemp1.json
+2026-04-21 09:02:42,349 - INFO - Chain [1] done processing
+2026-04-21 09:02:42,531 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\9mo9467l.json
+2026-04-21 09:02:42,546 - DEBUG - idx 0
+2026-04-21 09:02:42,546 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:42,547 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43662', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\dpxnemp1.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\9mo9467l.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelm9033214\\prophet_model-20260421090242.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:42,548 - INFO - Chain [1] start processing
+2026-04-21 09:02:43,115 - INFO - Chain [1] done processing
+2026-04-21 09:02:47,715 - DEBUG - cmd: where.exe tbb.dll
+cwd: None
+2026-04-21 09:02:47,797 - DEBUG - TBB already found in load path
+2026-04-21 09:02:47,894 - INFO - Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
+2026-04-21 09:02:47,992 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\ksc5_xi8.json
+2026-04-21 09:02:48,582 - DEBUG - input tempfile: C:\Users\prani\AppData\Local\Temp\tmpzb9ejxzg\4ux4e1pp.json
+2026-04-21 09:02:48,586 - DEBUG - idx 0
+2026-04-21 09:02:48,586 - DEBUG - running CmdStan, num_threads: None
+2026-04-21 09:02:48,586 - DEBUG - CmdStan args: ['C:\\Users\\prani\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=26572', 'data', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\ksc5_xi8.json', 'init=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\4ux4e1pp.json', 'output', 'file=C:\\Users\\prani\\AppData\\Local\\Temp\\tmpzb9ejxzg\\prophet_modelmadeshry\\prophet_model-20260421090248.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2026-04-21 09:02:48,587 - INFO - Chain [1] start processing
+2026-04-21 09:02:49,148 - INFO - Chain [1] done processing

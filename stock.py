@@ -3,7 +3,8 @@ import yfinance as yf
 from prophet import Prophet
 from prophet.plot import plot_plotly
 import pandas as pd
-from datetime import date, time
+from datetime import date
+import time
 from xgboost import XGBRegressor
 import numpy as np
 import plotly.graph_objects as go
@@ -148,10 +149,29 @@ if ticker:
             st.subheader(f"Raw data for {ticker}")
             st.write(data.tail())
 
+            # ----------------------------------------
             # Prepare data for Prophet
-            df_train = data[["Date", "Close"]].dropna()
+            # ----------------------------------------
+            df_train = data[["Date", "Close"]].dropna().copy()
             df_train.columns = ["ds", "y"]
+
+            # ✅ Ensure datetime + REMOVE timezone (CRITICAL FIX)
+            df_train["ds"] = pd.to_datetime(df_train["ds"], errors="coerce")
+
+            # 🔥 BULLETPROOF timezone removal
+            try:
+                df_train["ds"] = df_train["ds"].dt.tz_convert(None)
+            except:
+                try:
+                    df_train["ds"] = df_train["ds"].dt.tz_localize(None)
+                except:
+                    pass
+
             df_train["y"] = pd.to_numeric(df_train["y"], errors="coerce")
+            df_train = df_train.dropna().sort_values("ds")
+
+            # Debug (optional)
+            # st.write("DS dtype:", df_train["ds"].dtype)
 
             earnings, dividends, splits = get_event_dates(ticker)
 
@@ -170,7 +190,9 @@ if ticker:
             ):
                 st.warning("No event types selected. Model will run without external regressors.")
 
-            # Add regressor flags
+            # ----------------------------------------
+            # Add regressors
+            # ----------------------------------------
             if use_earnings:
                 df_train["earnings_flag"] = df_train["ds"].isin(earnings).astype(int)
             if use_dividends:
@@ -192,16 +214,15 @@ if ticker:
             if use_macro:
                 df_train["macro_flag"] = df_train["ds"].isin(macro_events).astype(int)
 
-            logging.info(f"Training data prepared with {len(df_train)} rows for ticker {ticker}")
-
             if df_train.empty:
-                st.error("❌ No valid 'Close' price data to train the model.")
+                st.error("❌ No valid data for Prophet.")
             else:
                 try:
-                    # Prophet model setup
+                    # ----------------------------------------
+                    # Prophet model
+                    # ----------------------------------------
                     model = Prophet()
 
-                    # Dynamically add regressors
                     if use_earnings: model.add_regressor("earnings_flag")
                     if use_dividends: model.add_regressor("dividends_flag")
                     if use_splits: model.add_regressor("splits_flag")
@@ -214,33 +235,39 @@ if ticker:
 
                     model.fit(df_train)
 
+                    # ----------------------------------------
                     # Future dataframe
+                    # ----------------------------------------
                     future = model.make_future_dataframe(periods=n_days)
+
+                    # 🔥 Ensure future ALSO has no timezone
+                    future["ds"] = pd.to_datetime(future["ds"]).dt.tz_localize(None)
+
                     if use_earnings: future["earnings_flag"] = future["ds"].isin(earnings).astype(int)
                     if use_dividends: future["dividends_flag"] = future["ds"].isin(dividends).astype(int)
                     if use_splits: future["splits_flag"] = future["ds"].isin(splits).astype(int)
                     if use_economic: future["economic_flag"] = future["ds"].isin(economic_events).astype(int)
-                    if use_news: future["sentiment_score"] = (
-                        future["ds"].map(sentiment_data.set_index("date")["score"]).fillna(0)
-                    )
+                    if use_news:
+                        future["sentiment_score"] = (
+                            future["ds"].map(sentiment_data.set_index("date")["score"]).fillna(0)
+                        )
                     if use_insider: future["insider_flag"] = future["ds"].isin(insider_events).astype(int)
                     if use_sector: future["sector_flag"] = future["ds"].isin(sector_spike_days).astype(int)
-                    if use_technical: future["technical_signal"] = 0  # placeholder
+                    if use_technical: future["technical_signal"] = 0
                     if use_macro: future["macro_flag"] = future["ds"].isin(macro_events).astype(int)
 
                     forecast = model.predict(future)
 
-                    # Forecast plot
+                    # ----------------------------------------
+                    # Plots
+                    # ----------------------------------------
                     st.subheader("📊 Forecast Plot")
                     fig1 = plot_plotly(model, forecast)
                     st.plotly_chart(fig1)
 
-                    # Forecast components
                     st.subheader("📉 Forecast Components")
                     fig2 = model.plot_components(forecast)
                     st.write(fig2)
-
-                    logging.info(f"Forecast generated for {n_days} days for {ticker}")
 
                 except Exception as e:
                     logging.error(f"Error during forecasting: {e}")
